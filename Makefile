@@ -5,7 +5,7 @@ CFLAGS = -O2 -Wall -I .
 # Others systems will probably require something different.
 LIB = -lpthread
 
-all: share badcnt
+all: share badcnt goodcnt
 
 share: share.c csapp.o
 	$(CC) $(CFLAGS) -o share share.c csapp.o $(LIB)
@@ -13,9 +13,12 @@ share: share.c csapp.o
 badcnt: badcnt.c csapp.o
 	$(CC) $(CFLAGS) -o badcnt badcnt.c csapp.o $(LIB)
 
+goodcnt: goodcnt.c csapp.o
+	$(CC) $(CFLAGS) -o goodcnt goodcnt.c csapp.o $(LIB)
+
 csapp.o: csapp.c
 	$(CC) $(CFLAGS) -c csapp.c
 
 clean:
-	rm -f *.o share badcnt *~
+	rm -f *.o share badcnt goodcnt *~
 
